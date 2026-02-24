@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main(){
+    
+    int numbers[] = {3,6,9,12,15,20,21,24};
+    
+    int n = sizeof(numbers) / sizeof(numbers[0]);
+    
+    int odd_total = 0, even_total = 0;
+    int odd_count = 0, even_count = 0;
+    int i;
+    
+    for(i = 0; i < n; i++){
+        if(numbers[i] % 2 == 0){
+            even_total += numbers[i];
+            even_count++;
+        } else {
+            odd_total += numbers[i];
+            odd_count++;
+        }
+    }
+    
+    if(odd_count > 0){
+        printf("Average of odd numbers = %.2f\n", (float)odd_total / odd_count);
+    } else {
+        printf("No odd numbers\n");
+    }
+    
+    if(even_count > 0){
+        printf("Average of even numbers = %.2f\n", (float)even_total / even_count);
+    } else {
+        printf("No even numbers\n");
+    }
+    
+    return 0;
+}

@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    FILE *fPtr;   // File pointer
+    char ch;      // Variable to store each character
+
+    // Open the file "file1.txt" in read mode
+    fPtr = fopen("file1.txt", "r"); // "r" = read mode
+
+    // Check if file was successfully opened
+    if(fPtr == NULL) {
+        printf("FILE NOT FOUND OR ACCESS DENIED. PLEASE CHECK.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("File has been successfully opened for reading.\n");
+
+    // Read file character by character until End Of File (EOF)
+    do {
+        ch = fgetc(fPtr);   // Read a character from file
+        putchar(ch);        // Print the character to console
+    } while(ch != EOF);     // EOF = End Of File
+
+    // Close the file
+    fclose(fPtr);
+
+    return 0;
+}
+
+/*This program demonstrates reading a file character by character in C:
+
+File pointer is declared: FILE *fPtr;
+
+Open the file in read mode ("r")
+
+Always check if the file opened successfully
+
+fPtr == NULL → file does not exist or access denied
+
+Read characters one by one using fgetc()
+
+Print each character to the console using putchar()
+
+Stop reading when EOF (End of File) is reached
+
+Close the file with fclose() to free resources */

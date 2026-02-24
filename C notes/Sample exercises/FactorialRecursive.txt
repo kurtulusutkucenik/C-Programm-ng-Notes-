@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+// Program to calculate factorial using recursion (C)
+
+int factorial(int n);
+
+int main(){
+    int value;
+    
+    printf("Enter the value to calculate factorial: \n");
+    scanf("%d", &value);
+    
+    printf("%d! = %d\n", value, factorial(value));
+    
+    return 0;
+}
+
+int factorial(int n){
+    if(n == 1)
+        return 1;
+    else 
+        return n * factorial(n - 1);
+}

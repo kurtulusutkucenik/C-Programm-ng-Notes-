@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+
+    int number, i;
+
+    // Ask the user for the number
+    printf("Enter the number you want to find factors of: ");
+    scanf("%d", &number);
+
+    printf("The factors of %d are:\n", number);
+
+    // Loop from 1 to the number
+    for(i = 1; i <= number; i++) {
+        // Check if i divides number evenly
+        if(number % i == 0) {
+            printf("%d, ", i);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
+
+/* Ask the user for a number.
+
+Use a for loop from i = 1 to i <= number.
+
+Check if number % i == 0:
+
+% is the modulo operator, returns the remainder
+
+If remainder is 0 → i is a factor of number
+
+Print all factors  */

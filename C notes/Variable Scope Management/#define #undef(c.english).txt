@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// We can define constant values using #define
+// and later remove them with #undef
+#define LARGE_NUMBER 1000000
+
+// A simple function that checks whether the input
+// is smaller than the defined constant
+int isOperationValid(int input) {
+    return (input < LARGE_NUMBER);
+}
+
+int main() {
+
+    int result1, result2, result3;
+
+    int first_variable = 20;
+    int second_variable = 25;
+
+    printf("Large number: %d\n", LARGE_NUMBER);
+
+    result1 = (first_variable < LARGE_NUMBER);
+    printf("Result 1: %d\n", result1);
+
+    result2 = (second_variable < LARGE_NUMBER);
+    printf("Result 2: %d\n", result2);
+
+    // Remove previous definition
+    #undef LARGE_NUMBER
+
+    // Redefine with a new value
+    #define LARGE_NUMBER 3000000
+
+    printf("New large number: %d\n", LARGE_NUMBER);
+
+    result3 = isOperationValid(30);
+    printf("Result 3: %d\n", result3);
+
+    return 0;
+}

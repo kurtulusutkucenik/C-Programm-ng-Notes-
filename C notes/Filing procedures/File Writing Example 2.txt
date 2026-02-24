@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define DATA_SIZE 1000  // Maximum size of the input data
+
+int main() {
+
+    char data[DATA_SIZE];  // Array to store user input
+    FILE *fPtr;            // File pointer
+
+    // Open the file "file1.txt" in write + read mode
+    // If the file exists, it will be overwritten
+    // If the file does not exist, it will be created
+    fPtr = fopen("file1.txt", "w+");
+
+    // Check if the file was successfully opened/created
+    if(fPtr == NULL) {
+        printf("File creation failed :( \n");
+        exit(EXIT_FAILURE);  // Exit the program immediately
+    }
+
+    // Ask user to enter data to save in the file
+    printf("Please enter the data to save in the file:\n");
+    fgets(data, DATA_SIZE, stdin);  // Read a line of input from the user
+
+    // Write the data into the file
+    fputs(data, fPtr);
+
+    // Close the file
+    fclose(fPtr);
+
+    printf("File has been successfully saved.\n");
+
+    return 0;
+}
+
+/* This program demonstrates writing user input to a file in C:
+
+char data[DATA_SIZE]; → reserves memory for user input
+
+fPtr = fopen("file1.txt", "w+");
+
+"w+" → opens file for reading and writing
+
+Creates the file if it does not exist
+
+Overwrites the file if it already exists
+
+Check if the file pointer is NULL → file creation/access failed
+
+fgets(data, DATA_SIZE, stdin); → reads a line of input safely
+
+fputs(data, fPtr); → writes input to the file
+
+Close the file with fclose(fPtr)
+
+Confirmation message printed to console */

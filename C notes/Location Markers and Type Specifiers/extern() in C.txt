@@ -1,0 +1,27 @@
+// EXTERN
+
+// 'extern' extends the scope of a global variable to the end of the main program.
+// REMINDER: Local variables override global variables.
+
+#include <stdio.h>
+
+int x = 10;
+int y = 50;
+
+int main() {
+
+    extern int y; // refer to the global y inside main
+
+    printf("Global x = %d\n", x);
+    printf("Extern y = %d", y);
+    
+    return 0;
+}
+
+/* Explanation:
+ * Without 'extern' on line 11 (i.e., if we declared 'int y;' locally),
+ * y would default to 0 because a local variable would shadow the global one.
+ *
+ * 'extern' prevents a local declaration from overriding the global variable.
+ * Use 'extern' inside functions to refer to global variables defined elsewhere.
+ */

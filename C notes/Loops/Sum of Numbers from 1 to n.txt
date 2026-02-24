@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+
+    int i, n, sum = 0;
+
+    // Ask user for the upper limit
+    printf("Please enter the number up to which you want to sum: ");
+    scanf("%d", &n);
+
+    // For loop: sum numbers from 1 to n
+    for(i = 1; i <= n; i++) {
+        sum += i;  // sum = sum + i
+    }
+
+    // Print the result
+    printf("The sum of numbers from 1 to %d = %d\n", n, sum);
+
+    return 0;
+}
+
+/* This program demonstrates calculating the sum of numbers from 1 to n using a for loop:
+
+Ask the user for the upper limit n.
+
+Initialize sum = 0.
+
+Use a for loop:
+
+Start from i = 1
+
+Continue while i <= n
+
+Add i to sum in each iteration
+
+Print the final result  */

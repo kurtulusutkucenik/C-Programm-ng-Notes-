@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    float a, b, c, discriminant, imaginary, root1, root2;
+    
+    printf("Enter the coefficients a, b, c for ax^2 + bx + c (separated by spaces): ");
+    scanf("%f %f %f", &a, &b, &c);
+    
+    discriminant = (b*b) - (4 * a * c);
+    
+    if(discriminant > 0)
+    {
+        root1 = (-b + sqrt(discriminant)) / (2*a);
+        root2 = (-b - sqrt(discriminant)) / (2*a);
+        
+        printf("There are two distinct real roots = %.2f and %.2f\n", root1, root2);
+    }
+    else if(discriminant == 0)
+    {
+        root1 = (-b) / (2*a);
+        printf("There is one real root = %.2f\n", root1);
+    }
+    else // discriminant < 0
+    {
+        root1 = (-b) / (2*a);
+        imaginary = sqrt(-discriminant) / (2*a);
+        
+        printf("There are two distinct complex roots = %.2f + i%.2f and %.2f - i%.2f\n", root1, imaginary, root1, imaginary);
+    }
+    return 0;
+}

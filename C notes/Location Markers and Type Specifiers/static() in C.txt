@@ -1,0 +1,35 @@
+// STATIC
+
+// 'static' preserves the value of a variable even across different function calls.
+
+#include <stdio.h>
+
+void IncrementValue(int k) {
+    static int i = 0;  // 'i' retains its value between function calls
+    printf("%d ", i);
+    i += k;
+}
+
+int main() {
+    IncrementValue(3);
+    IncrementValue(3);
+    IncrementValue(3);
+    IncrementValue(3);
+
+    return 0;
+}
+// The output will be: 0 3 6 9
+
+/* Explanation:
+
+static makes the variable i retain its value between calls to IncrementValue().
+
+On the first call: i = 0, prints 0, then i += 3 → i = 3.
+
+On the second call: i = 3, prints 3, then i += 3 → i = 6.
+
+On the third call: i = 6, prints 6, then i += 3 → i = 9.
+
+On the fourth call: i = 9, prints 9, then i += 3 → i = 12 (would be used if called again).
+
+This shows how static preserves the state of a variable across multiple function calls. */

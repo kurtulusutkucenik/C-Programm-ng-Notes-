@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// This is a global variable
+int a = 20;
+
+// This function demonstrates local variable scope and shadowing
+int performOperations(int a, int b) {
+
+    // Here we can see that the local variable 'a'
+    // shadows (overrides) the global variable 'a'
+    printf("Value of 'a' inside performOperations(): %d\n", a);
+
+    printf("Value of 'b' inside performOperations(): %d\n", b);
+
+    // Multiply a by 12
+    a *= 12;
+
+    // Add 5 to b
+    b += 5;
+
+    printf("Value of 'a' after modification: %d\n", a);
+    printf("Value of 'b' after modification: %d\n", b);
+
+    return a + b;
+}
+
+int main() {
+
+    // These are local variables
+    // Local variables shadow the global variable with the same name
+    int a = 10;
+    int b = 20;
+    int c = 0;
+
+    printf("Value of 'a' inside main(): %d\n", a);
+    printf("Value of 'b' inside main(): %d\n", b);
+
+    c = performOperations(a, b);
+
+    printf("Value of 'c' inside main(): %d\n", c);
+
+    // Notice that a and b are unchanged here
+    // because the function worked on copies (pass-by-value)
+    printf("Value of 'a' inside main(): %d\n", a);
+    printf("Value of 'b' inside main(): %d\n", b);
+
+    return 0;
+}
+
+/*
+Notes:
+- Function parameters are local variables.
+- C uses pass-by-value, so changes inside the function
+  do NOT affect variables in main().
+- When a function ends, its local variables are removed from memory.
+- If a local variable has the same name as a global variable,
+  it shadows the global one.
+*/

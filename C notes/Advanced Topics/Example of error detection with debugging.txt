@@ -1,0 +1,47 @@
+/*
+ * !!THIS IS WRITTEN FOR EDUCATIONAL PURPOSES BASED ON ONLINEGDB C COMPILER :) GOOD LUCK
+ *
+ * +The purpose of this example is to examine why our non-working code does not run correctly.
+ *
+ * +First, let's discuss the function of our code. The code uses `continue` and a `while` loop,
+ *   and it is intended to print numbers from 0 to 10, but it skips 4. Let's find the bug.
+ *   However, in the current code, the problem is that it does not print 4 and the numbers after it.
+ *   We want it to print: 0 1 2 3 5 ... 9.
+ */
+
+#include <stdio.h>
+
+int main(void) {
+
+    int index = 0;
+
+    while (index < 10) {
+        if (index == 4) {
+            continue;
+        }
+        printf("%d \n", index);
+        index++;
+    }
+
+    /* 
+     * +Before debugging, we need to set breakpoints. Here, I put breakpoints at lines 18-19 and 21-22.
+     * +Press START to run.
+     * --> In Call Stack (imagining as I can't show the panel) [0   main     main.c:18]
+     * --> In Local Variables, you see index
+     * --> In Console, you see the line with `if` at line 18
+     * +Press CONTINUE (first Continue press)
+     * Here, the `continue;` at line 19 is skipped, so we expect to reach line 21
+     * --> Call Stack shows [0   main    main.c:21]
+     * --> Console shows the printf line at 21
+     * +Press CONTINUE again (second Continue press)
+     * --> Call Stack shows [0   main   main.c:22]
+     * --> Console shows index++ at line 22
+     * Now index increments from 0 → 0 is printed. These steps print numbers. On the third Continue press, index = 1, returning to line 6
+     * Numbers continue printing this way until 4.
+     * !!Continue executes step by step: one press moves to the next breakpoint; if at the last line, it loops back to the first in this example.
+     * !!Here’s the critical point: Normally, for index = 4, we never reach line 19 (`continue;`). But if we press CONTINUE at index = 4, line 19 is executed, sending us back to line 18, and line 22 (index++) is bypassed. Therefore, index is never updated, and the loop becomes infinite.
+     * GOOD LUCK :)
+     */
+
+    return 0;
+}

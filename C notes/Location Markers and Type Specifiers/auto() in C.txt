@@ -1,0 +1,29 @@
+// AUTO
+
+// 'auto' is the default storage class for all local variables
+// If not specified, variables are automatically 'auto'.
+// For another example of auto, check different references.
+
+#include <stdio.h>
+
+void IncreaseValue(int k) {
+    auto int i = 0; // 'i' is automatically local to the function
+    printf("%d ", i);
+    i += k;
+}
+
+int main() {
+    IncreaseValue(3);
+    IncreaseValue(3);
+    IncreaseValue(3);
+    IncreaseValue(3);
+
+    return 0;
+}
+
+// OUTPUT:
+// 0 0 0 0
+// Explanation:
+// 'auto' variables are re-initialized every time the function is called,
+// so 'i' starts at 0 in each call.
+// For persistent values between calls, consider using 'static' instead of 'auto'.

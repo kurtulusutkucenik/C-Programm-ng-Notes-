@@ -1,0 +1,61 @@
+/*
+ * CALLOC + REALLOC Example
+ *
+ * This program demonstrates dynamic memory allocation in C using
+ * calloc() for initial allocation and realloc() for resizing.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int *ptr, n1, n2, index; // Variables: ptr = pointer, n1 = initial size, n2 = new size, index = loop
+
+    printf("Enter an initial size: ");
+    // Prevent user from entering invalid input (letters or negative values)
+    if (scanf("%d", &n1) != 1) {
+        printf("ERROR! Invalid input.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Allocate memory using calloc (initialized to zero)
+    ptr = (int*) calloc(n1, sizeof(int));
+
+    if (ptr == NULL) { // Prevent memory allocation failure
+        printf("ERROR! Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Allocated (initial) memory addresses:\n");
+    for (index = 0; index < n1; index++) {
+        // Printing addresses of each element
+        printf("%p\n", ptr + index); // ptr + index gives address of each element
+    }
+
+    // Prompt for new size
+    printf("Enter a new size: ");
+    if (scanf("%d", &n2) != 1) { // Prevent invalid input
+        printf("ERROR! Invalid input.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Resize the allocated memory using realloc
+    int *temp = realloc(ptr, n2 * sizeof(int));
+    // Note: We use temp to avoid losing the original pointer if realloc fails
+
+    if (temp == NULL) { // Check if resizing was successful
+        printf("ERROR! Memory reallocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Memory addresses after realloc:\n");
+    for (index = 0; index < n2; index++) {
+        printf("%p\n", temp + index);
+    }
+
+    // Free the allocated memory
+    free(ptr);
+
+    return 0;
+}

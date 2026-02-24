@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    char fileName[1000];   // Array to store file name
+    char ch;               // Variable to store each character
+    FILE *fPtr;            // File pointer
+
+    // Ask user for the file name
+    printf("Enter the file name: ");
+    scanf("%999s", fileName); // No & needed for char array with %s
+
+    // Open the file in read mode
+    fPtr = fopen(fileName, "r");
+
+    // Check if the file was successfully opened
+    if (fPtr == NULL) {
+        printf("File does not exist or access is denied. Please check.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Read and print each character until EOF
+    do {
+        ch = fgetc(fPtr);   // Read one character
+        putchar(ch);        // Print to console
+    } while (ch != EOF);
+
+    // Close the file
+    fclose(fPtr);
+
+    return 0;
+}
+
+/*This program demonstrates reading a file specified by the user:
+
+char fileName[1000]; → stores the name of the file
+
+scanf("%999s", fileName); → reads user input safely (reserving space for null terminator)
+
+Open the file in read mode ("r")
+
+Check if the file exists / accessible → fPtr == NULL
+
+Use fgetc() to read one character at a time
+
+Print characters using putchar()
+
+Stop when EOF (End of File) is reached
+
+Close the file to release resources  */

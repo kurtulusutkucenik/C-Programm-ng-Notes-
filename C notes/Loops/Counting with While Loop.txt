@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+
+    int upper_limit, i;
+
+    // Ask the user for the upper limit
+    printf("Enter the upper limit: ");
+    scanf("%d", &upper_limit);
+
+    i = 1; // Starting value
+    while(i <= upper_limit) { // Condition to continue the loop
+        printf("%d\n", i);
+        i++; // Increment
+    }
+
+    return 0;
+}
+
+/* This program demonstrates counting from 1 to a user-specified number using a while loop:
+
+Ask the user for an upper limit.
+
+Initialize the counter i = 1.
+
+The while loop continues while the condition i <= upper_limit is true.
+
+Print the value of i in each iteration.
+
+Increment i after printing to eventually exit the loop.  */

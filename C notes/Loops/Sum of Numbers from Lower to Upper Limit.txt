@@ -1,0 +1,34 @@
+#include <stdio.h>
+int main(){
+    int alt_sinir, ust_sinir, i, toplam=0;
+    
+    printf("Lütfen bir alt sınır giriniz: ");
+    scanf("%d", &alt_sinir);
+    
+    printf("Lütfen bir üst sınır giriniz: ");
+    scanf("%d", &ust_sinir);
+    
+    for(i = alt_sinir;i<=ust_sinir;i++){
+        
+        toplam += i;
+    }
+    printf("%d'den %d'ye olan sayıların toplamı = %d",alt_sinir,ust_sinir,toplam);
+    return 0;
+}
+
+
+/* This program demonstrates calculating the sum of numbers in a specific range using a for loop:
+
+Ask the user for a lower limit and upper limit.
+
+Initialize sum = 0.
+
+Use a for loop:
+
+Start from i = lower_limit
+
+Continue while i <= upper_limit
+
+Add i to sum in each iteration
+
+Print the final sum   */

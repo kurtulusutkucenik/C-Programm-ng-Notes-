@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int choice;
+    float principal, annual_interest_rate, duration, compounding, simple_interest_amount, compound_interest_amount;
+
+    printf("Please enter your principal amount: ");
+    scanf("%f", &principal);
+
+    printf("Please enter your annual interest rate: ");
+    scanf("%f", &annual_interest_rate);
+
+    printf("Please enter your duration (years): ");
+    scanf("%f", &duration);
+
+    printf("Please enter the compounding frequency: ");
+    scanf("%f", &compounding);
+
+    if(duration <= 0)
+    {
+        printf("You have entered an invalid value for duration.\n");
+        return 1;
+    }
+
+    if(annual_interest_rate > 0)
+    {
+        annual_interest_rate = annual_interest_rate / 100;
+    } else {
+        printf("You have entered an invalid value for the annual interest rate!\n");
+        return 1;
+    }
+
+    printf("1) Compound Interest Calculation  2) Simple Interest Calculation\n");
+    printf("Please enter the number corresponding to your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice)
+    {
+        case 1:
+            printf("You chose Compound Interest\n");
+
+            compound_interest_amount = principal * pow((1.0 + (annual_interest_rate / compounding)),(compounding * duration)) - principal;
+
+            printf("Your earnings from compound interest = %.2f \n", compound_interest_amount);
+            break;
+
+        case 2:
+            printf("You chose Simple Interest\n");
+
+            simple_interest_amount = principal * annual_interest_rate * duration;
+
+            printf("Your earnings from simple interest = %.2f \n", simple_interest_amount);
+            break;
+
+        default:
+            printf("It seems a problem occurred. Please restart the system and try again.\n");
+    }
+
+    printf("Thank you for using our service.\n");
+
+    return 0;
+}
+

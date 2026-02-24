@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+
+    int i;
+
+    // Loop from 0 to 10
+    for(i = 0; i <= 10; i++) {
+        // Skip the iteration when i equals 5
+        if(i == 5) {
+            continue;  // Skip the rest of this loop iteration
+        }
+        printf("%d\n", i);
+    }
+
+    return 0;
+}
+
+/* This program demonstrates the continue statement in a for loop:
+
+Loop from i = 0 to i <= 10.
+
+Check if i == 5.
+
+If the condition is true, continue skips the rest of this iteration and moves to the next one.
+
+Otherwise, print the value of i.
+
+Output:
+
+0
+1
+2
+3
+4
+6
+7
+8
+9
+10
+
+Notice that 5 is skipped and not printed. */

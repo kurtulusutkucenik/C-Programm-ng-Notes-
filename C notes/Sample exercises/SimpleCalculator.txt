@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+// Simple calculator program in C that performs +, -, *, / operations until user quits
+
+int main(void) {
+
+    double num1, num2, result;
+    char choice;
+
+    while (1) {
+
+        printf("Enter number 1: ");
+        if (scanf("%lf", &num1) != 1) {
+            printf("ERROR! Invalid input.\n");
+            exit(EXIT_FAILURE);
+        }
+
+        printf("Enter number 2: ");
+        if (scanf("%lf", &num2) != 1 ) {
+            printf("ERROR! Invalid input.\n");
+            exit(EXIT_FAILURE);
+        }
+
+        printf("Enter operation (+, -, *, /) or q to quit: ");
+        scanf(" %c", &choice);
+
+        switch (choice) {
+
+            case '+':
+                result = num1 + num2;
+                printf("%lf + %lf = %lf\n", num1, num2, result);
+                break;
+
+            case '-':
+                result = num1 - num2;
+                printf("%lf - %lf = %lf\n", num1, num2, result);
+                break;
+
+            case '*':
+                result = num1 * num2;
+                printf("%lf * %lf = %lf\n", num1, num2, result);
+                break;
+
+            case '/':
+                if (num2 == 0) {
+                    printf("ERROR! Division by zero.\n");
+                    exit(EXIT_FAILURE);
+                } else {
+                    result = num1 / num2;
+                    printf("%lf / %lf = %lf\n", num1, num2, result);
+                }
+                break;
+
+            case 'q':
+                printf("Exit requested. Goodbye!\n");
+                exit(EXIT_SUCCESS);
+                break;
+
+            default:
+                printf("ERROR! Invalid operation.\n");
+                exit(EXIT_FAILURE);
+        }
+    }
+
+    return 0;
+}

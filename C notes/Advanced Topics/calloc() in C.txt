@@ -1,0 +1,64 @@
+/*
+ * calloc() Example
+ *
+ * This program demonstrates dynamic memory allocation using calloc()
+ * and safely reads integers from the user to calculate their sum.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n, *ptr, index, sum = 0;
+
+    printf("Enter the number of elements to sum: ");
+
+    // Input validation: ensure user enters a number, not a letter
+    if (scanf("%d", &n) != 1) {
+        printf("ERROR! Please do not enter a letter.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    if (n < 0) {
+        printf("ERROR! You entered a negative number.\n");
+        exit(EXIT_FAILURE);
+    } else if (n == 0) {
+        printf("ERROR! You entered 0.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Allocate memory for n integers using calloc()
+    // calloc guarantees contiguous memory and initializes it to zero
+    ptr = (int*) calloc(n, sizeof(int));
+
+    if (ptr == NULL) {
+        printf("ERROR! Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Enter the elements to sum: ");
+
+    // Read elements one by one
+    for (index = 0; index < n; index++) {
+        if (scanf("%d", &ptr[index]) != 1) {
+            printf("ERROR! Please do not enter a letter.\n");
+            exit(EXIT_FAILURE);
+        }
+        sum += ptr[index];
+    }
+
+    // Clear remaining input buffer to catch extra input
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF) {
+        printf("ERROR! Too many inputs.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Sum = %d\n", sum);
+
+    // Free the dynamically allocated memory
+    free(ptr);
+
+    return 0;
+}

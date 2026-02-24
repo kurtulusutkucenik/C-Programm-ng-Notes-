@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+// Function to check if a number is even
+int isEven(int number) {
+    if(number % 2 == 0)
+        return 1;  // 1 means true → number is even
+    else
+        return 0;  // 0 means false → number is odd
+}
+
+int main() {
+    int number;
+
+    // Ask the user for a natural number
+    printf("Enter a natural number: ");
+    scanf("%d", &number);
+
+    // Call the function to check if the number is even
+    if(isEven(number)) {
+        printf("Even number\n");
+    } else {
+        printf("Odd number\n");
+    }
+
+    return 0;
+}
+
+/* This program demonstrates using a function to check if a number is even:
+
+Function isEven(int number):
+
+Returns 1 (true) if the number is divisible by 2 (number % 2 == 0).
+
+Returns 0 (false) if the number is odd.
+
+User input:
+
+Ask for a natural number using scanf("%d", &number);.
+
+Function call:
+
+if(isEven(number)) checks the return value.
+
+Print result:
+
+Prints "Even number" if the function returns 1, otherwise "Odd number".  */

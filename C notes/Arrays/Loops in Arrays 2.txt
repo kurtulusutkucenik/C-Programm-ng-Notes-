@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+
+    // Define an array with its elements
+    int myArray[] = {25, 50, 75, 100};
+
+    // Assign a new value to the first element (index 0)
+    myArray[0] = 66;
+
+    // Print the first element
+    printf("%d", myArray[0]);
+
+    return 0;
+}
+
+/*  An array is used to store multiple values of the same data type in a single variable.
+Array indexing starts from 0.
+In this example, the first element is updated and printed.  */

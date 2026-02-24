@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+// Function prototype
+int calculateCube(int number);
+
+int main() {
+    int number, cube;
+
+    // Ask the user for a number
+    printf("Please enter the number you want to find the cube of: ");
+    scanf("%d", &number);
+
+    // Call the function to calculate the cube
+    cube = calculateCube(number);
+
+    // Print the result
+    printf("The cube of %d is %d\n", number, cube);
+
+    return 0;
+}
+
+// Function to calculate the cube of a number
+int calculateCube(int number) {
+    return number * number * number;
+}
+
+/* This program demonstrates using a function to calculate the cube of a number:
+
+Function prototype:
+
+int calculateCube(int number); declares the function.
+
+User input:
+
+Ask for an integer number using scanf("%d", &number);.
+
+Function call:
+
+cube = calculateCube(number); computes the cube.
+
+Print result:
+
+printf("The cube of %d is %d\n", number, cube); displays the output. */

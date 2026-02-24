@@ -1,0 +1,32 @@
+// GLOBAL AND LOCAL VARIABLES (C)
+
+#include <stdio.h>
+
+// Global variable
+int global_sum;
+
+int main() {
+
+    // Local variables (only accessible inside main)
+    int a, b;
+
+    a = 10;
+    b = 20;
+
+    // Assign result to global variable
+    global_sum = a + b;
+
+    printf("%d + %d = %d\n", a, b, global_sum);
+
+    printf("a = %d, b = %d, global_sum = %d\n", a, b, global_sum);
+
+    return 0;
+}
+
+/*
+Notes:
+- Global variables are defined outside functions.
+- They can be accessed from anywhere in the program.
+- Local variables are defined inside functions.
+- Local variables exist only within their scope (block/function).
+*/

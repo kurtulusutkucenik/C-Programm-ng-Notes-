@@ -1,0 +1,75 @@
+/*
+ * malloc() Example
+ *
+ * This program demonstrates dynamic memory allocation using malloc()
+ * and reads integers from the user to calculate their sum.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n, index, *ptr, sum = 0; // Pointer needed to store dynamic memory
+
+    printf("Enter the number of elements to sum: ");
+    scanf("%d", &n);
+
+    if (n <= 0) { // Ensure user does not enter 0 or negative number
+        printf("ERROR! Cannot perform this operation.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Allocate memory for n integers using malloc()
+    ptr = (int*) malloc(n * sizeof(int)); // Standard malloc
+
+    if (ptr == NULL) {
+        printf("ERROR! Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Enter the elements to sum: ");
+    for (index = 0; index < n; index++) {
+        scanf("%d", ptr + index);      // Read value into memory at ptr + index
+        sum += *(ptr + index);         // Add value to sum
+    }
+
+    printf("SUM = %d\n", sum);
+
+    // Free the dynamically allocated memory
+    free(ptr);
+
+    return 0;
+}
+
+/* Alternative style without using pointer arithmetic:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int index, *ptr, n, sum = 0;
+
+    printf("Enter the number of elements to sum: ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("ERROR! Negative or zero value entered.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    ptr = (int*) malloc(n * sizeof(int));
+
+    printf("Enter the elements to sum: ");
+    for (index = 0; index < n; index++) {
+        scanf("%d", &ptr[index]);   // Direct array-style access
+        sum += ptr[index];
+    }
+
+    printf("Sum = %d\n", sum);
+
+    free(ptr);
+
+    return 0;
+}
+*/

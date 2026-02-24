@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+
+    int i, upper_limit;
+
+    // Ask the user to enter the upper limit
+    printf("Please enter the upper limit: ");
+    scanf("%d", &upper_limit);
+
+    i = 1;
+
+    // do-while loop runs at least once
+    do {
+        printf("%d\n", i);
+        i++;
+    } while (i <= upper_limit);
+
+    return 0;
+}

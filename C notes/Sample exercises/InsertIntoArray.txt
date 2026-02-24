@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+// Program to insert a number at a specified index in an array
+
+int main(){
+    int number_to_add, index_to_add, i, size;
+    int myArray[] = {1,2,3,4,5,6,7,8};
+    
+    size = sizeof(myArray) / sizeof(myArray[0]);
+    
+    printf("Original array:\n");
+    for(i = 0; i < size; i++ )
+    {
+        printf("%d \n", myArray[i]);
+    }
+    
+    printf("Enter the number you want to add: ");
+    scanf("%d", &number_to_add);
+    
+    printf("Enter the index where you want to insert the number: ");
+    scanf("%d", &index_to_add);
+    
+    // Shift elements to the right of the index to make space
+    for(i = size - 1; i > index_to_add; i--)
+    {
+        myArray[i] = myArray[i - 1];
+    }
+    
+    myArray[index_to_add] = number_to_add;
+    
+    printf("Array after insertion:\n");
+    for(i = 0; i < size; i++)
+    {
+        printf("%d ", myArray[i]);
+    }
+    
+    printf("\n");
+    return 0;
+}

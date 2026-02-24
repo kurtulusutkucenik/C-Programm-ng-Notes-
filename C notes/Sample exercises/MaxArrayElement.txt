@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+// Program to find the largest element in an array
+
+int main(){
+    int myArray[] = {1,2,3,4,5,6,7,8,9};
+    int position = 0;
+    int i;
+    int max_value = myArray[0]; // initialize with first element
+    
+    int size = sizeof(myArray) / sizeof(myArray[0]); // calculate array size
+    
+    for(i = 0; i < size; i++){
+        if(myArray[i] > max_value){
+            position = i;
+            max_value = myArray[i];
+        }
+    }
+    
+    printf("The largest value is %d at position %d.\n", max_value, position);
+    
+    return 0;
+}

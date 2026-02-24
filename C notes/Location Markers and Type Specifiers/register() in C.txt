@@ -1,0 +1,20 @@
+// REGISTER
+
+// 'register' variables are stored in CPU registers. 
+// They are more limited in capacity than normal variables, 
+// but can be accessed and printed much faster.
+// In short: functionally similar to regular variables, 
+// faster in speed, limited in capacity.
+
+#include <stdio.h>
+
+int main() {
+    register int i; // i is suggested to be stored in a CPU register
+
+    int number_array[5] = {8, 10, 12, 14, 16};
+    for (i = 0; i < 5; i++) {
+        printf("number_array[%d] = %d\n", i, number_array[i]);
+    }
+
+    return 0;
+}

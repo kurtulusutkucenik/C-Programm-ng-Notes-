@@ -1,0 +1,51 @@
+All Libraries in the C Language
+
+
+#include <stdio.h>      // Standard Input/Output (printf, scanf)
+#include <stdlib.h>     // General functions (malloc, free, exit, rand)
+#include <string.h>     // String manipulation (strlen, strcpy)
+#include <math.h>       // Mathematical functions (sqrt, pow, sin) 
+#include <stdbool.h>    // Boolean type support (true, false)
+#include <stdint.h>     // Fixed-point integers(int32_t,uint64_t)
+#include <time.h>       // Time and date functions
+#include <ctype.h>      // Character testing and conversion (isdigit, toupper)
+#include <assert.h>     // Debugging macros (assert)
+#include <limits.h>     // Data type limits
+#include <float.h>      // Limits of decimal numbers
+#include <errno.h>      // Error numbers and reporting
+#include <stdarg.h>     // Functions that take a variable number of parameters
+#include <setjmp.h>     // Long jumps
+#include <signal.h>     // Signal processing (interrupts)
+#include <stddef.h>     // Standard definitions (NULL, size_t)
+#include <locale.h>     // Localization settings
+#include <complex.h>    //Complex number arithmetic (C99)
+#include <fenv.h>       // Floating point environment control
+#include <inttypes.h>   // Format specifiers for types such as uint64_t
+#include <tgmath.h>     // Type-independent math macros
+#include <threads.h>    // Standard thread support with C11
+#include <stdatomic.h>  // Atomic operations (C11)
+#include <unistd.h>     // Unix standard functions (fork, pipe, sleep)
+#include <pthread.h>    // POSIX Thread library
+#include <dirent.h>     // Index reading operations
+#include <sys/socket.h> // Network programming (Sockets)
+#include <netinet/in.h> // Internet protocol definitions
+#include <arpa/inet.h>  // IP address conversions
+#include <sys/stat.h>   // File information (stat)
+#include <sys/types.h>  // System data types
+#include <fcntl.h>      // File control (open, fcntl)
+#include <omp.h>        // Allows multiple cores on the CPU to be used simultaneously in C/C++.
+
+// Graphics and Gaming
+#include <SDL2/SDL.h>   // SDL (Simple DirectMedia Layer)
+#include <GL/gl.h>       // OpenGL main library
+#include <GLFW/glfw3.h> // Window management and input
+#include <raylib.h>     // Easy game development (Raylib)
+
+// Database and Data Processing
+#include <sqlite3.h>    // SQLite database
+#include <jansson.h>    // JSON parser
+#include <curl/curl.h>  // Web/URL transfer library (Libcurl)
+
+// Security and Encryption
+#include <openssl/ssl.h>// OpenSSL library
+#include <sodium.h>     // Libsodium modern cryptography

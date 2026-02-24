@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <math.h>
+
+// Function prototypes
+float calculateDiameter(float radius);
+float calculateCircumference(float radius);
+float calculateArea(float radius);
+
+int main() {
+    float radius, diameter, circumference, area;
+
+    // Ask the user for the radius
+    printf("Please enter a radius value: ");
+    scanf("%f", &radius);  // Note: use %f for float
+
+    // Call functions to calculate diameter, circumference, and area
+    diameter = calculateDiameter(radius);
+    circumference = calculateCircumference(radius);
+    area = calculateArea(radius);
+
+    // Print the results
+    printf("The diameter of a circle with radius %.2f is %.2f\n", radius, diameter);
+    printf("The circumference of a circle with radius %.2f is %.2f\n", radius, circumference);
+    printf("The area of a circle with radius %.2f is %.2f\n", radius, area);
+
+    return 0;
+}
+
+// Function to calculate diameter
+float calculateDiameter(float radius) {
+    return 2 * radius;
+}
+
+// Function to calculate circumference
+float calculateCircumference(float radius) {
+    return 2 * M_PI * radius;
+}
+
+// Function to calculate area
+float calculateArea(float radius) {
+    return M_PI * radius * radius;
+}
+
+/* This program demonstrates using functions to calculate circle properties:
+
+Function prototypes declare the functions at the top:
+
+calculateDiameter() → returns diameter
+
+calculateCircumference() → returns circumference
+
+calculateArea() → returns area
+
+User input:
+
+Ask for the radius using scanf("%f", &radius);
+
+Function calls:
+
+Call each function with the given radius and store the results in variables
+
+Print results:
+
+Use %.2f to display the numbers with 2 decimal places
+
+Math constants:
+
+M_PI comes from <math.h> and represents π */

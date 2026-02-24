@@ -1,0 +1,37 @@
+// Pointers in C: Concept and Applications
+
+/*
+ * --> We can access the address of a variable using &
+ *
+ * --> We declare pointers using *
+ */
+
+#include <stdio.h>
+
+int main() {
+    int number = 10;
+
+    int *pointer;  // Declare a pointer to an int
+
+    pointer = &number; // Assign the address of 'number' to the pointer
+
+    printf("Address of number variable = %p\n", (void*)&number);
+
+    printf("Value of number variable = %d\n", number);
+
+    printf("Address of pointer variable = %p\n", (void*)&pointer);
+
+    printf("Value stored in pointer variable = %p\n", (void*)pointer);
+
+    printf("Value pointed to by pointer = %d\n", *pointer);
+
+    return 0;
+}
+
+/* Explanation:
+ *
+ * - The address of the variable 'number' = address of the pointer variable = value stored in the pointer
+ * - The value of 'number' = value pointed to by the pointer
+ *
+ * This shows how pointers store addresses and can be used to access the value at that address.
+ */

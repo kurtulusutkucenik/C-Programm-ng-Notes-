@@ -1,0 +1,79 @@
+In arrays, memory is static—we must predict the size beforehand.
+
+In dynamic systems, you don’t know the size in advance, and you need flexibility. For this, C provides the “Four Big Ones”:
+
+The Four Big Functions: malloc(), calloc(), realloc(), free()
+
+1. malloc()
+
+pointer = (castType*) malloc(size);
+pointer = (float*) malloc(100 * sizeof(float));
+
+Allocates memory for a given type and size.
+
+The memory may not be contiguous—blocks may not be next to each other.
+
+Memory is uninitialized; it may contain garbage values. You can modify it afterward.
+
+Think of malloc() as a “raw” memory allocator—it just grabs space, doesn’t touch it.
+
+2. calloc()
+
+pointer = (castType*) calloc(n, size);
+pointer = (float*) calloc(100, sizeof(float));
+
+Allocates memory for n elements, each of a given size.
+
+Memory is guaranteed contiguous—all blocks are next to each other.
+
+Memory is initialized to 0.
+
+Unlike malloc(), calloc() is a little more “gentle”: it clears the memory for you before you use it.
+
+
+
+3. realloc()
+
+pointer = realloc(pointer, new_size);
+
+If you already have allocated memory and need to resize it, use realloc().
+
+realloc() changes the size while preserving existing data as much as possible.
+
+
+4. free()
+
+free(pointer);
+
+Use free() when a dynamically allocated memory block is no longer needed.
+
+Always free memory at the end of malloc(), calloc(), or realloc() to avoid memory leaks.
+
+!!!Important: Forgetting free() is a rookie mistake—never skip it!
+
+
+
+Extra Notes / Best Practices
+
+Always check if malloc(), calloc(), or realloc() returns NULL → memory allocation failed.
+
+Use calloc() if you need clean zeroed memory.
+
+malloc() just grabs memory—it doesn’t initialize it.
+
+Always free() memory as soon as it’s no longer needed.
+
+Use sizeof(type) instead of hardcoding bytes.
+
+Memory blocks may or may not be contiguous with malloc(); if you need guaranteed contiguity, use calloc().
+
+
+Quick mental image for the Four Big Functions:
+
+malloc() → “Give me X bytes, I don’t care what’s inside.”
+
+calloc() → “Give me X bytes and clear them to zero first.”
+
+realloc() → “Resize this memory block to a new size.”
+
+free() → “I’m done, release it back to the system.”

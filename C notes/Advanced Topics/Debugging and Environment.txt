@@ -1,0 +1,54 @@
+/*
+ * DEBUGGING AND ENVIRONMENT OVERVIEW
+ *
+ * Try this in CLion if you want, though it may be easier to follow with OnlineGDB C Compiler!
+ *
+ * Debugging helps us understand why a program behaves differently than expected
+ * or why it does not run as intended.
+ *
+ * Breakpoint = Allows the program to run up to a certain point, then **pause**
+ * so we can check **variable values, program flow, and logic**.
+ *
+ * To set a breakpoint, just click on the line number or to the left of it.
+ */
+
+#include <stdio.h>
+
+int main(void){
+
+    int upper_limit, index;
+
+    printf("Enter an upper limit: ");
+    scanf("%d", &upper_limit);
+
+    for(index = 1; index <= upper_limit; index++){
+        if(index % 2 == 0){  // I placed a breakpoint here
+            printf("%d\n", index); // I also placed a breakpoint here
+        }
+    }
+
+    /*
+     * After setting breakpoints, press the debug button to start debugging.
+     * The lines where breakpoints are set appear under "Breakpoints and Watchpoints -> Description".
+     * !!!During debugging, you cannot modify or edit the code.
+     *
+     * When execution pauses at line 24 (if condition), you can inspect it in the Local Variables section:
+     * - Variable: index
+     * - Value: current value of index (e.g., 1 at first iteration)
+     * - Upper limit: value entered by the user
+     *
+     * Before pressing CONTINUE, ensure you understand the program logic.
+     * Pressing CONTINUE will move the index to the next value (e.g., 2),
+     * and if divisible by 2, the console will show that the second breakpoint is reached:
+     * Breakpoint 1, main() at main.c:24
+     * (and the line with printf("%d\n", index))
+     */
+
+    return 0;
+}
+
+/*
+ * Note: Each compiler has a different debugging system. 
+ * The goal of these notes is to **understand the logic**, not to memorize every location.
+ * GOOD LUCK! :)
+ */

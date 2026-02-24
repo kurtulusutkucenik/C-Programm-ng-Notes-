@@ -1,0 +1,34 @@
+// Does not enforce behavioral constraints.
+// Provides a hint to the compiler for more controlled and optimized execution.
+
+// restrict
+
+void ExampleUsage(int* a, int* b, int* restrict c) {
+    
+    *a += *c;
+    /* Since 'c' is declared as restrict, the compiler knows that no other pointer
+       will access the same memory as 'c'. Therefore, in the generated assembly,
+       'c' does not need to be reloaded multiple times.
+       This makes the code more optimized and faster. */
+    
+    *b += *c;
+}
+// In short, 'restrict' assumes that the pointer's value is the only reference to that memory.
+
+
+// volatile
+
+/* Unlike 'restrict', 'volatile' tells the compiler to read the value from memory
+   every time it is accessed, instead of possibly using cached values in registers.
+   
+   Why use 'volatile'?
+   - Embedded systems
+   - Multithreaded programs
+   - Software using shared memory
+*/
+
+/* Key points:
+
+restrict → Guarantees the pointer is the only way to access that memory; helps optimization.
+
+volatile → Forces every access to go to memory; prevents compiler from caching values in registers. */
